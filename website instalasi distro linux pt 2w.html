@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panduan Instalasi Linux</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(155, 89, 182, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .linux-logo {
+            width: 50px;
+            height: 50px;
+            background: #ffffff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .linux-logo img {
+            width: 35px;
+            height: 35px;
+        }
+
+        .logo-text {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #f8f9ff 0%, #f0e6ff 100%);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            color: #8e44ad;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Installation Steps */
+        .steps-section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #8e44ad;
+            margin-bottom: 50px;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .step-card {
+            background: white;
+            border: 2px solid #e8d5f2;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .step-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(155, 89, 182, 0.2);
+            border-color: #9b59b6;
+        }
+
+        .step-number {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #9b59b6, #8e44ad);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin: 0 auto 20px;
+        }
+
+        .step-card h3 {
+            color: #8e44ad;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .step-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Distros Section */
+        .distros-section {
+            background: #f8f9ff;
+            padding: 80px 0;
+        }
+
+        .distros-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+        }
+
+        .distro-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px 20px;
+            text-align: center;
+            border: 2px solid #e8d5f2;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .distro-card:hover {
+            background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);
+            color: white;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(155, 89, 182, 0.3);
+        }
+
+        .distro-card:hover h3,
+        .distro-card:hover p {
+            color: white;
+        }
+
+        .distro-icon {
+            width: 80px;
+            height: 80px;
+            background: #f0e6ff;
+            border-radius: 15px;
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            transition: all 0.3s ease;
+        }
+
+        .distro-card:hover .distro-icon {
+            background: white;
+        }
+
+        .distro-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            color: #333;
+            transition: color 0.3s;
+        }
+
+        .distro-card p {
+            color: #888;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .distros-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo-section">
+                <div class="linux-logo">
+                    <!-- Linux Tux Logo using base64 encoded image -->
+                    <svg width="35" height="35" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="50" cy="30" r="18" fill="#000"/>
+                        <ellipse cx="50" cy="55" rx="25" ry="30" fill="#000"/>
+                        <circle cx="43" cy="28" r="2" fill="white"/>
+                        <circle cx="57" cy="28" r="2" fill="white"/>
+                        <path d="M50 32 L46 36 L54 36 Z" fill="#FFA500"/>
+                        <ellipse cx="35" cy="65" rx="8" ry="15" fill="#000" transform="rotate(-30 35 65)"/>
+                        <ellipse cx="65" cy="65" rx="8" ry="15" fill="#000" transform="rotate(30 65 65)"/>
+                        <ellipse cx="42" cy="80" rx="7" ry="5" fill="#FFA500"/>
+                        <ellipse cx="58" cy="80" rx="7" ry="5" fill="#FFA500"/>
+                    </svg>
+                </div>
+                <div class="logo-text">Linux Install Guide</div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#beranda">Beranda</a></li>
+                <li><a href="#panduan">Panduan</a></li>
+                <li><a href="#distro">Distro</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="beranda">
+        <div class="container">
+            <h1>Selamat Datang di Dunia Linux</h1>
+            <p>Panduan sederhana dan lengkap untuk instalasi berbagai distribusi Linux. Mulai perjalanan open source Anda hari ini!</p>
+        </div>
+    </section>
+
+    <!-- Installation Steps -->
+    <section class="steps-section" id="panduan">
+        <div class="container">
+            <h2 class="section-title">Langkah-Langkah Instalasi</h2>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>Pilih Distro</h3>
+                    <p>Pilih distribusi Linux yang sesuai dengan kebutuhan Anda. Ubuntu, Mint, atau Fedora adalah pilihan yang bagus untuk pemula.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>Download ISO</h3>
+                    <p>Unduh file ISO dari website resmi distribusi pilihan Anda. Pastikan checksum file sesuai untuk menghindari korupsi.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Buat Bootable</h3>
+                    <p>Gunakan Rufus (Windows) atau Etcher (Mac/Linux) untuk membuat USB bootable dari file ISO yang telah diunduh.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h3>Boot dari USB</h3>
+                    <p>Masukkan USB dan restart komputer. Masuk ke BIOS/UEFI dan pilih boot dari USB drive.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">5</div>
+                    <h3>Install</h3>
+                    <p>Ikuti wizard instalasi. Pilih bahasa, zona waktu, partisi disk, dan buat user account.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">6</div>
+                    <h3>Selesai!</h3>
+                    <p>Restart komputer dan nikmati Linux baru Anda. Jangan lupa update sistem setelah instalasi selesai.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Distros -->
+    <section class="distros-section" id="distro">
+        <div class="container">
+            <h2 class="section-title">Distro Linux Populer</h2>
+            <div class="distros-grid">
+                <div class="distro-card">
+                    <div class="distro-icon">🔶</div>
+                    <h3>Ubuntu</h3>
+                    <p>Populer & user-friendly</p>
+                </div>
+                <div class="distro-card">
+                    <div class="distro-icon">🟢</div>
+                    <h3>Mint</h3>
+                    <p>Sangat mudah untuk pemula</p>
+                </div>
+                <div class="distro-card">
+                    <div class="distro-icon">🔵</div>
+                    <h3>Fedora</h3>
+                    <p>Latest technology</p>
+                </div>
+                <div class="distro-card">
+                    <div class="distro-icon">🟣</div>
+                    <h3>Debian</h3>
+                    <p>Stable & reliable</p>
+                </div>
+                <div class="distro-card">
+                    <div class="distro-icon">⚫</div>
+                    <h3>Arch</h3>
+                    <p>Customizable & minimal</p>
+                </div>
+                <div class="distro-card">
+                    <div class="distro-icon">🔴</div>
+                    <h3>openSUSE</h3>
+                    <p>Enterprise grade</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Simple and error-free JavaScript
+        window.onload = function() {
+            // Smooth scrolling
+            document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    var target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Distro card click handler
+            document.querySelectorAll('.distro-card').forEach(function(card) {
+                card.addEventListener('click', function() {
+                    var distroName = this.querySelector('h3').textContent;
+                    console.log('Selected: ' + distroName);
+                });
+            });
+
+            // Header scroll effect
+            var header = document.querySelector('header');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 100) {
+                    header.style.boxShadow = '0 4px 20px rgba(155, 89, 182, 0.3)';
+                } else {
+                    header.style.boxShadow = '0 2px 10px rgba(155, 89, 182, 0.2)';
+                }
+            });
+        };
+    </script>
+</body>
+</html>by kael
